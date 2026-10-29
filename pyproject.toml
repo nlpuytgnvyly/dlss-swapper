@@ -1,0 +1,27 @@
+[project]
+name = "dlss-swapper"
+version = "0.9.4"
+description = "DLSS 5 Manager — scan game libraries, match DLSS runtime versions, and hot-swap nvngx_dlss DLLs safely."
+requires-python = ">=3.10"
+authors = [{ name = "dlss-swapper contributors" }]
+dependencies = [
+  "requests>=2.31",
+  "pywin32>=306; sys_platform == 'win32'",
+]
+
+[project.scripts]
+dlss-swapper = "dlss_swapper.__main__:main"
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "ruff>=0.4"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 110
+target-version = "py310"
